@@ -1,51 +1,55 @@
-# Node.js Package Template 📦
+# exit-zero
 
-A practical template for building and publishing Node.js packages and CLIs to npm, with GitHub Actions, OIDC publishing, and sane defaults.
+Force a command to exit with code 0 (success).
 
-  <a href="https://www.npmjs.com/package/package-name"><img src="https://img.shields.io/npm/v/package-name.svg?style=flat-square&color=007acc" alt="npm version"></a>
-  <a href="https://bundlephobia.com/package/package-name"><img src="https://img.shields.io/bundlephobia/minzip/package-name?style=flat-square" alt="size"></a>
-  <a href="https://www.npmjs.com/package/package-name"><img src="https://img.shields.io/npm/dt/package-name.svg?style=flat-square&color=success" alt="npm downloads"></a>
-  <a href="https://github.com/mgks/package-name/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mgks/package-name.svg?style=flat-square&color=blue" alt="license"></a>
-  <a href="https://github.com/mgks/package-name/stargazers"><img src="https://img.shields.io/github/stars/mgks/package-name?style=flat-square&logo=github" alt="stars"></a>
+**The Problem:** Your CI fails because a linter found a warning, or a non-critical script returned exit code 1. You try adding `|| true` but it doesn't work consistently across Windows/Linux shells.
 
-## Use this template
+**The Solution:** `exit-zero` runs your command, streams the output (colors preserved), and **always** reports success to the OS.
 
-### 1. Create the repo
-- Click **Use this template** on GitHub.
-- Name it something sensible, for example `package-name`.
-- Clone it locally.
+<a href="https://www.npmjs.com/package/exit-zero"><img src="https://img.shields.io/npm/v/exit-zero.svg?style=flat-square&color=007acc" alt="npm version"></a>
+<a href="https://bundlephobia.com/package/exit-zero"><img src="https://img.shields.io/bundlephobia/minzip/exit-zero?style=flat-square" alt="size"></a>
+<a href="https://www.npmjs.com/package/exit-zero"><img src="https://img.shields.io/npm/dt/exit-zero.svg?style=flat-square&color=success" alt="npm downloads"></a>
+<a href="https://github.com/mgks/exit-zero/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mgks/exit-zero.svg?style=flat-square&color=blue" alt="license"></a>
+<a href="https://github.com/mgks/exit-zero/stargazers"><img src="https://img.shields.io/github/stars/mgks/exit-zero?style=flat-square&logo=github" alt="stars"></a>
 
-### 2. Set package metadata
-Edit `package.json` and update the identity:
-
-### 3. Rename the CLI
-
-* Rename `bin/my-package.js` to your package name.
-* Update the `bin` field in `package.json`.
-* Adjust help text and examples inside the file.
-
-### 4. Write the code
-
-* Library logic lives in `src/`.
-* Keep `src/index.js` as the public API.
-* Avoid exporting internals, use `exports`.
-
-### 5. Test locally
+## Install
 
 ```bash
-npm install -g .
-package-name --help
+npm install exit-zero
 ```
 
-### 6. Publish
+## Usage
 
-* Push to GitHub.
-* Create a GitHub Release (tag `v0.1.0`).
-* GitHub Actions publishes to npm using OIDC.
+### In `package.json` scripts
 
-## Why this exists
+```json
+{
+  "scripts": {
+    "lint": "eslint .",
+    "lint:ci": "exit-zero npm run lint"
+  }
+}
+```
 
-Because npm packages should be easy to ship, hard to break, and boring to maintain.
+### In GitHub Actions / CI
+
+```yaml
+steps:
+  - run: npx exit-zero npm run test:flaky
+```
+
+### CLI
+
+```bash
+$ exit-zero ls --unknown-flag
+ls: unrecognized option '--unknown-flag'
+# (The command failed, but the process exited with 0)
+```
+
+## Why not `|| true`?
+*   `|| true` doesn't work in standard Windows cmd.exe.
+*   `|| true` can be confusing in complex `npm run` chains.
+*   `exit-zero` is explicit: you are intentionally suppressing the failure.
 
 ## License
 
