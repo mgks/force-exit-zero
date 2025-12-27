@@ -1,0 +1,51 @@
+{
+  "name": "package-name",
+  "version": "0.0.0",
+  "description": "Description goes here.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgks/package-name.git"
+  },
+  "author": {
+    "name": "mgks",
+    "url": "https://mgks.dev"
+  },
+  "homepage": "https://github.com/mgks/package-name#readme",
+  "bugs": {
+    "url": "https://github.com/mgks/package-name/issues"
+  },
+  "funding": "https://github.com/sponsors/mgks",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "package-name": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "node --import=tsx --test test/*.ts",
+    "build": "tsup",
+    "prepublishOnly": "npm run build && npm test",
+    "lint": "xo"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "xo": "^0.56.0"
+  },
+  "xo": {
+    "prettier": true,
+    "rules": {
+      "unicorn/filename-case": "off"
+    }
+  }
+}
