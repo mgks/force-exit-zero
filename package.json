@@ -1,36 +1,53 @@
 {
-  "name": "package-name",
-  "version": "0.0.0",
-  "description": "Description goes here.",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mgks/package-name.git"
-  },
-  "author": {
-    "name": "mgks",
-    "url": "https://mgks.dev"
-  },
-  "homepage": "https://github.com/mgks/package-name#readme",
-  "bugs": {
-    "url": "https://github.com/mgks/package-name/issues"
-  },
-  "funding": "https://github.com/sponsors/mgks",
+  "name": "exit-zero",
+  "version": "0.1.0",
+  "description": "Force a command to exit with code 0 (success), regardless of the result. Perfect for CI pipelines.",
   "type": "module",
-  "exports": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "bin": {
-    "package-name": "./dist/cli.js"
+    "exit-zero": "./dist/cli.js"
   },
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false,
   "scripts": {
     "test": "node --import=tsx --test test/*.ts",
     "build": "tsup",
     "prepublishOnly": "npm run build && npm test",
     "lint": "xo"
   },
+  "keywords": [
+    "cli",
+    "bin",
+    "exit-code",
+    "success",
+    "ci",
+    "github-actions",
+    "ignore-error",
+    "suppress"
+  ],
+  "author": {
+    "name": "mgks",
+    "url": "https://mgks.dev"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgks/exit-zero.git"
+  },
+  "homepage": "https://github.com/mgks/exit-zero#readme",
+  "bugs": {
+    "url": "https://github.com/mgks/exit-zero/issues"
+  },
+  "funding": "https://github.com/sponsors/mgks",
   "publishConfig": {
     "access": "public",
     "provenance": true
