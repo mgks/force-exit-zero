@@ -1,10 +1,10 @@
 {
-  "name": "exit-zero",
+  "name": "force-exit-zero",
   "version": "0.1.0",
   "description": "Force a command to exit with code 0 (success), regardless of the result. Perfect for CI pipelines.",
   "type": "module",
   "bin": {
-    "exit-zero": "./dist/cli.js"
+    "force-exit-zero": "dist/cli.js"
   },
   "main": "./dist/index.js",
   "exports": {
@@ -41,17 +41,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mgks/exit-zero.git"
+    "url": "git+https://github.com/mgks/force-exit-zero.git"
   },
-  "homepage": "https://github.com/mgks/exit-zero#readme",
+  "homepage": "https://github.com/mgks/force-exit-zero#readme",
   "bugs": {
-    "url": "https://github.com/mgks/exit-zero/issues"
+    "url": "https://github.com/mgks/force-exit-zero/issues"
   },
   "funding": "https://github.com/sponsors/mgks",
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "tsup": "^8.0.0",
