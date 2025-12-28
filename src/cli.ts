@@ -14,15 +14,15 @@ if (args.includes('--help') || args.includes('-h')) {
   Force a command to exit with code 0.
 
   Usage
-    $ exit-zero <command> [args...]
+    $ force-exit-zero <command> [args...]
 
   Options
     --version, -v   Show version
     --help, -h      Show help
 
   Examples
-    $ exit-zero npm run lint
-    $ exit-zero ls --non-existent-flag
+    $ force-exit-zero npm run lint
+    $ force-exit-zero ls --non-existent-flag
 	`);
 	process.exit(0);
 }
@@ -34,7 +34,7 @@ if (args.includes('--version') || args.includes('-v')) {
 
 // Handle Logic
 if (args.length === 0) {
-	console.error('Error: No command provided.\nUsage: exit-zero <command>');
+	console.error('Error: No command provided.\nUsage: force-exit-zero <command>');
 	process.exit(0);
 }
 
@@ -54,6 +54,6 @@ child.on('close', () => {
 
 // Fix 3: Explicitly type the error
 child.on('error', (error: Error) => {
-	console.error(`exit-zero error: ${error.message}`);
+	console.error(`force-exit-zero error: ${error.message}`);
 	process.exit(0);
 });
