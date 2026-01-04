@@ -6,11 +6,7 @@ Force a command to exit with code 0 (success).
 
 **The Solution:** `force-exit-zero` runs your command, streams the output (colors preserved), and **always** reports success to the OS.
 
-<a href="https://www.npmjs.com/package/force-exit-zero"><img src="https://img.shields.io/npm/v/force-exit-zero.svg?style=flat-square&color=007acc" alt="npm version"></a>
-<a href="https://bundlephobia.com/package/force-exit-zero"><img src="https://img.shields.io/bundlephobia/minzip/force-exit-zero?style=flat-square" alt="size"></a>
-<a href="https://www.npmjs.com/package/force-exit-zero"><img src="https://img.shields.io/npm/dt/force-exit-zero.svg?style=flat-square&color=success&v2" alt="npm downloads"></a>
-<a href="https://github.com/mgks/force-exit-zero/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mgks/force-exit-zero.svg?style=flat-square&color=blue&v2" alt="license"></a>
-<a href="https://github.com/mgks/force-exit-zero/stargazers"><img src="https://img.shields.io/github/stars/mgks/force-exit-zero?style=flat-square&logo=github&v2" alt="stars"></a>
+<img src="https://img.shields.io/npm/v/force-exit-zero.svg?style=flat-square&color=007acc" alt="npm version"> <img src="https://img.shields.io/bundlephobia/minzip/force-exit-zero?style=flat-square" alt="size"> <img src="https://img.shields.io/npm/dt/force-exit-zero.svg?style=flat-square&color=success&v2" alt="npm downloads"> <img src="https://img.shields.io/github/stars/mgks/force-exit-zero?style=flat-square&logo=github&v2" alt="stars"> <img src="https://img.shields.io/github/license/mgks/force-exit-zero.svg?style=flat-square&color=blue&v2" alt="license">
 
 ## Install
 
