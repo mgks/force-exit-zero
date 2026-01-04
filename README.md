@@ -1,14 +1,17 @@
 # force-exit-zero
 
-Force a command to exit with code 0 (success).
+**Force a command to exit with code 0 (success).**
 
-**The Problem:** Your CI fails because a linter found a warning, or a non-critical script returned exit code 1. You try adding `|| true` but it doesn't work consistently across Windows/Linux shells.
+<p>
+  <img src="https://img.shields.io/npm/v/force-exit-zero.svg?style=flat-square&color=d25353" alt="npm version">
+  <img src="https://img.shields.io/bundlephobia/minzip/force-exit-zero?style=flat-square&color=38bd24" alt="size">
+  <img src="https://img.shields.io/npm/dt/force-exit-zero.svg?style=flat-square&color=success&color=38bd24" alt="npm downloads">
+  <img src="https://img.shields.io/github/license/mgks/force-exit-zero.svg?style=flat-square&color=blue" alt="license">
+</p>
 
-**The Solution:** `force-exit-zero` runs your command, streams the output (colors preserved), and **always** reports success to the OS.
+Sometimes CI fails for the pettiest reasons, a linter warning or a non-critical script exiting with code 1. Shell hacks like `||` true are unreliable across Windows and Unix, so `force-exit-zero` runs your command, streams the output with colours intact, and always reports success back to the OS, no matter what the command does.
 
-<img src="https://img.shields.io/npm/v/force-exit-zero.svg?style=flat-square&color=007acc" alt="npm version"> <img src="https://img.shields.io/bundlephobia/minzip/force-exit-zero?style=flat-square" alt="size"> <img src="https://img.shields.io/npm/dt/force-exit-zero.svg?style=flat-square&color=success&v2" alt="npm downloads"> <img src="https://img.shields.io/github/stars/mgks/force-exit-zero?style=flat-square&logo=github&v2" alt="stars"> <img src="https://img.shields.io/github/license/mgks/force-exit-zero.svg?style=flat-square&color=blue&v2" alt="license">
-
-## Install
+## Installation
 
 ```bash
 npm install force-exit-zero
